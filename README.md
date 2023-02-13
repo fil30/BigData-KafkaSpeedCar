@@ -25,7 +25,7 @@ I used simulated data for this project. The script car-data.py generates JSON da
 ## Technogies
 * Spark (3.3.0)
 * Kafka (3.3.2)
-* Zookeeper
+* Zookeeper (3.6.3)
 * PySpark (3.3.0)
 * Python (3.9.13)
 
