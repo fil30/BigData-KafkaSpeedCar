@@ -29,3 +29,8 @@ I used simulated data for this project. The script car-data.py generates JSON da
 * PySpark (3.3.0)
 * Python 
 
+## Usage
+* Start all the components with the script ```start-all.bash```
+* Execute bash run-all.bash
+* Close the application with the script ```stop-all.bash```
+
