@@ -24,10 +24,10 @@ I used simulated data for this project. The script car-data.py generates JSON da
 
 ## Technogies
 * Spark (3.3.0)
-* Kafka
+* Kafka (3.3.2)
 * Zookeeper
 * PySpark (3.3.0)
-* Python 
+* Python (3.9.13)
 
 ## Usage
 * Start all the components with the script ```start-all.bash```
