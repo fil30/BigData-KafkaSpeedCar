@@ -23,4 +23,9 @@ I used simulated data for this project. The script car-data.py generates JSON da
 ```
 
 ## Technogies
+* Spark (3.3.0)
+* Kafka
+* Zookeeper
+* PySpark (3.3.0)
+* Python 
 
