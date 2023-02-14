@@ -6,13 +6,13 @@ The aim of this project is to set up a Kafka environment to manage a real time d
 * The result of the computation is returned in the console output
 
 
-I used simulated data for this project. The script ```car-data.py``` generates JSON data characterized by the above schema:
+I used simulated data for this project. The script ```car-data.py``` generates JSON data characterized by the following schema:
 ```
   <Example>
        
       {
            "id_sensor": "ZZZ12345678-85E",
-           "destinaation": "AAA12345678",
+           "destination": "AAA12345678",
            "road_type": "highway",
            "speed_limit": 130,
            "model": "Mercedes-Benz",
