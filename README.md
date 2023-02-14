@@ -3,7 +3,7 @@ The aim of this project is to set up a Kafka environment to manage a real time d
 * Create data directly by the script ```car-data.py``` in a random way
 * Memorize data in a JSON file and publish them in Kafka Broker
 * Data are consumed through Spark Streaming
-* Finally, the result of the computation is returned in the console output
+* The result of the computation is returned in the console output
 
 
 I used simulated data for this project. The script ```car-data.py``` generates JSON data characterized by the above schema:
