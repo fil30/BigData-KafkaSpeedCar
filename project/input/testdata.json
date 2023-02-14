@@ -1,1 +1,1 @@
-{"id_sensor": "ZZZ12345678-61D", "destination": "AAA12345678", "road_type": "secondary extra urban road", "speed_limit": 90, "model": "Bentley", "plate": "AB178NU", "eventTime": "2023-02-14T23:15:36.366197", "speed": 67}
+{"id_sensor": "ZZZ12345678-61D", "destination": "AAA12345678", "road_type": "secondary extra urban road", "speed_limit": 90, "model": "Bentley", "plate": "AB178NU", "time": "2023-02-14T23:15:36.366197", "speed": 67}
