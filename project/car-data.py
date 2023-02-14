@@ -1,19 +1,8 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[1]:
-
-
 import sys
 import datetime
 import random
 from random import randrange
-import re
-import copy
 import json
-
-
-# In[2]:
 
 
 # Set number of simulated messages to generate
@@ -21,10 +10,6 @@ if len(sys.argv) > 1:
   num_msgs = int(sys.argv[1])
 else:
   num_msgs = 1
-
-
-# In[2]:
-
 
 car_list = ['Ferrari', 'Alfa Romeo', 'Audi', 'Suzuki', 'Hyundai', 'Lancia', 'Honda', 'Mercedes-Benz',
            'Mazda', 'Nissan', 'Volkswagen', 'Subaru', 'Toyota', 'Lamborghini', 'Chevrolet', 'Ford',
@@ -42,10 +27,6 @@ destination = "AAA12345678"
 letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 
 list = []
-
-
-# In[3]:
-
 
 # Generate text output:
 if __name__ == "__main__":
@@ -86,20 +67,3 @@ if __name__ == "__main__":
             jsonFile.write("\n")
         count = count + 1
     jsonFile.close()
-        
-    #jsonString = json.dumps(list)
-    #jsonFile = open("testdata.json", "w")
-    #jsonFile.write(jsonString)
-    #jsonFile.close()
-
-        
-        
-        
-        
-
-
-# In[ ]:
-
-
-
-

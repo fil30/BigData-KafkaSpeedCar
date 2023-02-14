@@ -1,17 +1,9 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[1]:
-
+# Script to manage streaming of data
 
 from pyspark.sql import SparkSession
 from pyspark.sql.functions import *
 from pyspark.sql.types import *
 from pyspark import SparkConf
-
-
-# In[3]:
-
 
 if __name__ == "__main__":
     if(len(sys.argv) != 3):
@@ -24,7 +16,12 @@ if __name__ == "__main__":
     spark = SparkSession.builder.config(conf=sparkConf).getOrCreate()
     
     # Construct a streaming DataFrame that reads from testtopic
-    df = spark         .readStream         .format("kafka")         .option("kafka.bootstrap.servers", sys.argv[1])         .option("subscribe", sys.argv[2])         .option("startingOffsets", "earliest")         .load()
+    df = spark.readStream  \
+         .format("kafka")  \
+         .option("kafka.bootstrap.servers", sys.argv[1])  \
+         .option("subscribe", sys.argv[2])  \
+         .option("startingOffsets", "earliest")  \
+         .load()
     
     # Define a schema for the data received
     schema = StructType([     
@@ -38,8 +35,8 @@ if __name__ == "__main__":
         StructField("speed", StringType(), True)
     ])
     
+    # Take data in json format
     dataset = df.withColumn("value", from_json(col("value").cast("string"), schema))
-    
     data = dataset.select(col("value.*"))
     
     data = data.withColumn("speed_limit", data["speed_limit"].cast(IntegerType()))
@@ -50,5 +47,12 @@ if __name__ == "__main__":
     table = table.withColumn("speeding(km/h)", table["speed"] - table["speed_limit"])
     table = table.select("plate", "model", "speeding(km/h)")
     
-    query1 = table.writeStream             .outputMode("update")             .format("console")             .option("truncate", False)             .option("numRows", 10000)   .trigger(processingTime="5 seconds")             .start()         .awaitTermination()
+    query1 = table.writeStream  \
+            .outputMode("update")  \
+            .format("console")  \
+            .option("truncate", False)  \
+            .option("numRows", 10000)  \
+            .trigger(processingTime="5 seconds")  \
+            .start()  \
+            .awaitTermination()
 
