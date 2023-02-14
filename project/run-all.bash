@@ -13,15 +13,15 @@ else
   input=$(cat input/execution.txt)
   python3 car-data.py "$data"
   
-  echo "Data succesfully created"
+  echo "Data successfully created"
   echo
   
   echo "Producing data for testtopic..."
-  kafka/bin/kafka-console-producer.sh --bootstrap-server localhost:9092 --topic testtopic < input/testdata.json
+  kafka_2.12-3.3.2/bin/kafka-console-producer.sh --bootstrap-server localhost:9092 --topic testtopic < input/testdata.json
   echo "Done"
   echo
 
-  echo "Execution..."
+  echo "Executing..."
   
   if [[ $input = "first" ]]; then
     unset PYSPARK_DRIVER_PYTHON
@@ -29,10 +29,12 @@ else
     gnome-terminal -- "${SPARK_HOME}"/bin/spark-submit --packages org.apache.spark:spark-sql-kafka-0-10_2.12:3.3.1 kafka-spark-car.py localhost:9092 testtopic
     
     echo "opened" > input/execution.txt
+    sleep 100
   fi
 
-  sleep 200
+  sleep 15
 fi
+
 
 while true
 do
@@ -43,20 +45,20 @@ do
     echo "Insert new data"
     read newdata
     re="^[0-9]+$as"
-    if ! [[ $data =~ $re ]]; then
+    if ! [[ $newdata =~ $re ]]; then
       echo "Error: invalid format"
       exit
     else
       python3 car-data.py "$newdata"
-      echo "Data succesfully created"
+      echo "Data successfully created"
       echo
       echo "Producing data for testtopic..."
-      kafka/bin/kafka-console-producer.sh --bootstrap-server localhost:9092 --topic testtopic < input/testdata.json
+      kafka_2.12-3.3.2/bin/kafka-console-producer.sh --bootstrap-server localhost:9092 --topic testtopic < input/testdata.json
  
       echo "Done"
       echo
       echo "Executing..."
-      sleep 200
+      sleep 15
     fi
   elif [[ "$firstanswer" = "n" ]]; then
     echo "Do you want to exit?(y/n)"

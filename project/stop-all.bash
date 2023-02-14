@@ -8,22 +8,22 @@ echo
 
 rm input/execution.txt
 
-echo "Deleting kafka topic"
-./kafka/bin/kafka-topics.sh --bootstrap-server localhost:9092 --topic testtopic --delete
-./kafka/bin/kafka-topics.sh --bootstrap-server localhost:9092 --topic __consumer_offsets --delete
-
-echo "Shotdown Zookeeper"
-./kafka/bin/zookeeper-server-stop.sh kafka/config/zookeeper.properties
-
-sleep 10
+echo "Delete Kafka topic"
+./kafka_2.12-3.3.2/bin/kafka-topics.sh --bootstrap-server localhost:9092 --topic testtopic --delete
+./kafka_2.12-3.3.2/bin/kafka-topics.sh --bootstrap-server localhost:9092 --topic __consumer_offsets --delete
 
 echo
 echo "Shotdown Kafka"
-./kafka/bin/kafka-server-stop.sh kafka/config/server.properties
+./kafka_2.12-3.3.2/bin/kafka-server-stop.sh kafka_2.12-3.3.2/config/server.properties
 
 sleep 10
 
 echo
+
+echo "Shotdown Zookeeper"
+./kafka_2.12-3.3.2/bin/zookeeper-server-stop.sh kafka_2.12-3.3.2/config/zookeeper.properties
+
+sleep 10
 
 sleep 1
 

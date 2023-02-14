@@ -5,7 +5,7 @@ from random import randrange
 import json
 
 
-# Set number of simulated messages to generate
+# Set number of simulated messages
 if len(sys.argv) > 1:
   num_msgs = int(sys.argv[1])
 else:
@@ -55,7 +55,7 @@ if __name__ == "__main__":
         
         list.append({"id_sensor": str(id_sensor), "destination": str(destination), "road_type": str(rand_street),
                 "speed_limit": int(rand_limit), "model": str(rand_car), "plate": str(rand_plate),
-                "eventTime": str(datestr), "speed": int(car_speed)})
+                "time": str(datestr), "speed": int(car_speed)})
         
     count = 1
     jsonFile = open("input/testdata.json", "w")
