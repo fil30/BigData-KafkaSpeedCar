@@ -31,6 +31,6 @@ I used simulated data for this project. The script ```car-data.py``` generates J
 
 ## Usage
 * Start all the components with the script ```start-all.bash```
-* Execute bash ```run-all.bash```
+* Execute bash script ```run-all.bash``` to run the project
 * Close the application with the script ```stop-all.bash```
 
