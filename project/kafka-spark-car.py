@@ -28,11 +28,11 @@ if __name__ == "__main__":
         StructField("id_sensor", StringType(), True),
         StructField("destination", StringType(), True),
         StructField("road_type", StringType(), True),
-        StructField("speed_limit", StringType(), True),
+        StructField("speed_limit", IntegerType(), True),
         StructField("model", StringType(), True),
         StructField("plate", StringType(), True),
         StructField("eventTime", StringType(), True),
-        StructField("speed", StringType(), True)
+        StructField("speed", IntegerType(), True)
     ])
     
     # Take data in json format
