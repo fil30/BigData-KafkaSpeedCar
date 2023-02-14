@@ -1,7 +1,7 @@
 # BigData-KafkaSpeedCar
 The aim of this project is to set up a Kafka environment to manage a real time data streaming, following these steps:
-* Created data directly by the script ```car-data.py``` in a random way
-* Memorized data in a JSON file and published in Kafka Broker
+* Create data directly by the script ```car-data.py``` in a random way
+* Memorize data in a JSON file and published in Kafka Broker
 * Data are consumed through Spark Streaming
 * Finally, the result of the computation is returned in the console output
 
