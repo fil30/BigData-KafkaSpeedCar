@@ -15,7 +15,7 @@ if __name__ == "__main__":
     
     spark = SparkSession.builder.config(conf=sparkConf).getOrCreate()
     
-    # Construct a streaming DataFrame that reads from testtopic
+    # Build a streaming DataFrame that reads from testtopic
     df = spark.readStream  \
          .format("kafka")  \
          .option("kafka.bootstrap.servers", sys.argv[1])  \
@@ -31,11 +31,11 @@ if __name__ == "__main__":
         StructField("speed_limit", IntegerType(), True),
         StructField("model", StringType(), True),
         StructField("plate", StringType(), True),
-        StructField("eventTime", StringType(), True),
+        StructField("time", StringType(), True),
         StructField("speed", IntegerType(), True)
     ])
     
-    # Take data in json format
+    # Read data in json format
     dataset = df.withColumn("value", from_json(col("value").cast("string"), schema))
     data = dataset.select(col("value.*"))
     
